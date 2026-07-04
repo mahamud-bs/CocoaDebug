@@ -34,6 +34,11 @@
 
 - (BOOL)addHttpRequset:(_HttpModel*)model
 {
+    NSString *url = model.url.absoluteString;
+    
+    if ([[url lowercaseString] containsString:@"toffeelive"] == NO) {
+        return NO;
+    }
     if ([model.url.absoluteString isEqualToString:@""]) {
         return NO;
     }
